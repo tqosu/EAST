@@ -1,0 +1,3 @@
+# ninja log v5
+0	12427	1715410063056730640	/nfs/hpc/dgx2-6/tmp/2024/5/10/OpenTAD/opentad/models/roi_heads/roi_extractors/boundary_pooling/build/temp.linux-x86_64-3.10/boundary_max_pooling_cuda.o	ecbe9ff5dea7bc5f
+1	13399	1715410064034735676	/nfs/hpc/dgx2-6/tmp/2024/5/10/OpenTAD/opentad/models/roi_heads/roi_extractors/boundary_pooling/build/temp.linux-x86_64-3.10/boundary_max_pooling_kernel.o	e59e492c642dda66

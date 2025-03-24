@@ -1,0 +1,3 @@
+# ninja log v5
+1	12369	1715410035528588882	/nfs/hpc/dgx2-6/tmp/2024/5/10/OpenTAD/opentad/models/roi_heads/roi_extractors/align1d/build/temp.linux-x86_64-3.10/Align1D_cuda.o	36b9c88bce8108f2
+1	24259	1715410047420650121	/nfs/hpc/dgx2-6/tmp/2024/5/10/OpenTAD/opentad/models/roi_heads/roi_extractors/align1d/build/temp.linux-x86_64-3.10/Align1D_cuda_kernal.o	7a2f7dfce6d2229e
