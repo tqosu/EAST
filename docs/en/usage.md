@@ -62,6 +62,3 @@ torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=local
 ```bash
 torchrun --nnodes=1 --nproc_per_node=2 --rdzv_backend=c10d --rdzv_endpoint=localhost:0 tools/test.py configs/adatad/assembly101/e2e_assembly101_videomaev2_g_768x1_160_adapter.py --cfg-options split=split1 annotation_path=data/annotations/assembly101._fps6.json feature_stride=1 data_path=data/assembly101/Assembly104_4  workflow.logging_interval=10  workflow.val_start_epoch=100 work_dir=exps/assembly101/adatad/e2e_actionformer_videomaev2_g_768x1_160_adapter3_fps6_sde1_p0.6 model.backbone.backbone.type=VisionTransformerAdapter3 model.backbone.backbone.adapter_drop_rate=0.6 --checkpoint exps/assembly101/adatad/e2e_actionformer_videomaev2_g_768x1_160_adapter3_fps6_sde1_p0.6/split1/gpu2_id0/checkpoint/epoch_xx.pth & \
 ```
-
-### High-Frame-Rate Aggregation and Refinement
-

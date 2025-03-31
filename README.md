@@ -5,6 +5,39 @@
     <img src="https://img.shields.io/badge/arXiv-2503.06316-b31b1b.svg?style=flat" /></a>
 </p>
 
+## 🌟 Model Zoo
+
+<table align="center">
+  <tbody>
+    <tr align="center" valign="bottom">
+      <td>
+        <ul>
+            <a href="configs/adatad/gtea">GTEA</a>
+        </ul>
+      </td>
+      <td>
+         <ul>
+            <a href="configs/actionformer">50salads</a>
+        </ul>
+      </td>
+      <td>
+         <ul>
+            <a href="configs/actionformer">Breakfast</a>
+        </ul>
+      </td>
+      <td>
+         <ul>
+            <a href="configs/actionformer">Assembly101</a>
+        </ul>
+      </td>
+    </tr>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+The detailed configs, results, and pretrained models of each method can be found in above folders.
+
 ## 🛠️ Installation
 Please refer to [install.md](docs/en/install.md) for installation.
 
