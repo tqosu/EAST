@@ -17,17 +17,17 @@
       </td>
       <td>
          <ul>
-            <a href="configs/actionformer">50salads</a>
+            <a href="configs/adatad/50salads">50salads</a>
         </ul>
       </td>
       <td>
          <ul>
-            <a href="configs/actionformer">Breakfast</a>
+            <a href="configs/adatad/breakfast">Breakfast</a>
         </ul>
       </td>
       <td>
          <ul>
-            <a href="configs/actionformer">Assembly101</a>
+            <a href="configs/adatad/assembly101">Assembly101</a>
         </ul>
       </td>
     </tr>
