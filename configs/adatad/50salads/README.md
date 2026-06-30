@@ -44,9 +44,10 @@ For more details, you can refer to the Test part in the [Usage](../../../docs/en
 
 ## Results and Models (High-Frame-Rate Aggregation and Refinement)
 We use the EAST detector to create proposals from videos for aggregator input, enabling robust segmentation.
+This is Stage 2 of the segmentation-by-detection pipeline (Sec. 3.3–3.5 of the [paper](https://arxiv.org/abs/2503.06316)); the code and full instructions live in [`ms-tcn-master2/`](../../../ms-tcn-master2/README.md). It consumes the `.npz` proposals saved by the Stage-1 test command above (`evaluation.save_npz=True`).
 | Data                               | F1@10 | F1@25 | F1@50 | Edit  | Acc  | Weight         | 
 | :--------------------------------: | :----: | :----: | :----: | :----: | :----: | :------------: | 
-| [train](https://oregonstate.box.com/s/bvhkc5fs1wprdsdmqjiqihgb7hv642j8), [evaluation](https://oregonstate.box.com/s/7n8v0snxyy6eslexlggws87ntsga7t3i) | 93.1 | 91.9 | 88.6 | 88.4 | 91.9 | [model](link3) |
+| [train](https://oregonstate.box.com/s/bvhkc5fs1wprdsdmqjiqihgb7hv642j8), [evaluation](https://oregonstate.box.com/s/7n8v0snxyy6eslexlggws87ntsga7t3i) | 93.1 | 91.9 | 88.6 | 88.4 | 91.9 | [model](https://oregonstate.box.com/s/p5glzhj0ae8ioyk7kjeqkt3i005zzhne) |
 
 
 ## Train
@@ -54,12 +55,14 @@ We use the EAST detector to create proposals from videos for aggregator input, e
 You can use the following command to train a model.
 
 ```shell
+cd ms-tcn-master2
 python main.py --action train --dataset 50salads --split 1 --directory_path exps/50salads/adatad/e2e_actionformer_videomaev2_g_768x1_160_fps2_adapter3_p0.5_train/split1/gpu2_id0/evaluation/ --directory_path_eva  exps/50salads/adatad/e2e_actionformer_videomaev2_g_768x1_160_fps2_adapter3_p0.5_test/split1/gpu2_id0/evaluation --sampler uniform --lambda_val 5
 ```
 lambda_val determines how many high-confidence proposals are excluded.
 
 ## Test
 ```shell
+cd ms-tcn-master2
 python max_FEA_avg_scores.py
 ```
 The training script logs evaluation performance, while `max_FEA_avg_scores.py` computes the average performance across various splits.

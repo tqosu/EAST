@@ -49,9 +49,14 @@ Please refer to [data.md](docs/en/data.md) for data preparation.
 
 Please refer to [usage.md](docs/en/usage.md) for details of training and evaluation scripts.
 
+EAST follows a two-stage *segmentation-by-detection* pipeline:
+
+1. **Detection** — the EAST transformer detector predicts action proposals over a coarsely down-sampled video (`tools/train.py` / `tools/test.py`; configs under `configs/adatad/`).
+2. **High-Frame-Rate Aggregation and Refinement** — the proposals are aggregated and refined by an MS-TCN to produce the final frame-wise segmentation (Sec. 3.3–3.5 of the paper). See [`ms-tcn-master2/`](ms-tcn-master2/README.md).
+
 ## 🖊️ Citation
 
-**[Acknowledgement]** This repo is inspired by [OpenTAD](https://github.com/sming256/OpenTAD/tree/main) project, and we give our thanks to their contributors.
+**[Acknowledgement]** This repo is inspired by [OpenTAD](https://github.com/sming256/OpenTAD/tree/main) project, and we give our thanks to their contributors. The refinement stage in [`ms-tcn-master2/`](ms-tcn-master2/README.md) is derived from [MS-TCN](https://github.com/yabufarha/ms-tcn); we thank its authors as well.
 
 If you think this repo is helpful, please cite us:
 

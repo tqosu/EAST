@@ -44,9 +44,10 @@ For more details, you can refer to the Test part in the [Usage](../../../docs/en
 
 ## Results and Models (High-Frame-Rate Aggregation and Refinement)
 We use the EAST detector to create proposals from videos for aggregator input, enabling robust segmentation.
+This is Stage 2 of the segmentation-by-detection pipeline (Sec. 3.3–3.5 of the [paper](https://arxiv.org/abs/2503.06316)); the code and full instructions live in [`ms-tcn-master2/`](../../../ms-tcn-master2/README.md). It consumes the `.npz` proposals saved by the Stage-1 test command above (`evaluation.save_npz=True`).
 | Data                               | F1@10 | F1@25 | F1@50 | Edit  | Acc  | Weight         | 
 | :--------------------------------: | :----: | :----: | :----: | :----: | :----: | :------------: | 
-| [train](https://oregonstate.box.com/s/5z4ga87saec9t2mk0egc61xkc17rr44u), [evaluation](https://oregonstate.box.com/s/efx1bu790n1uljzzd1rmvpzsnpw4rlcs) | 95.8  | 95.4  | 91.7  | 95.4  | 87.1 | [model](link3) |
+| [train](https://oregonstate.box.com/s/efx1bu790n1uljzzd1rmvpzsnpw4rlcs), [evaluation](https://oregonstate.box.com/s/5z4ga87saec9t2mk0egc61xkc17rr44u) | 95.8  | 95.4  | 91.7  | 95.4  | 87.1 | [model](https://oregonstate.box.com/s/bw4qqpi5n20t4q6t22uxk2fdzv1mt8yr) |
 
 
 ## Train
@@ -54,12 +55,14 @@ We use the EAST detector to create proposals from videos for aggregator input, e
 You can use the following command to train a model.
 
 ```shell
+cd ms-tcn-master2
 python main.py --action train --dataset gtea --split 1 --directory_path exps/gtea/adatad/e2e_actionformer_ret_ssv2_tpl_l16_25m_768x1_160_adapter3_2e-4_0.0002_p0.5_train/split1/gpu2_id0/evaluation --directory_path_eva exps/gtea/adatad/e2e_actionformer_ret_ssv2_tpl_l16_25m_768x1_160_adapter3_2e-4_0.0002_p0.5_test/split1/gpu2_id0/evaluation --sampler uniform --lambda_val 1  --bg_idx 10 & \
 ```
 lambda_val determines how many high-confidence proposals are excluded, while bg_idx, the background index, is omitted from F1 score calculations.
 
 ## Test
 ```shell
+cd ms-tcn-master2
 python max_FEA_avg_scores.py
 ```
 The training script logs evaluation performance, while `max_FEA_avg_scores.py` computes the average performance across various splits.
